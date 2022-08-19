@@ -5,11 +5,8 @@ import java.util.Random;
 
 public class LinkedListChecker {
 
-    LinkedList<Integer> list1 = new LinkedList<>();
-
-
-    public LinkedList<Integer> randomLinkedList(int n) {
-
+    public LinkedList<Integer> createListWithSize(int n) {
+        LinkedList<Integer> list1 = new LinkedList<>();
         Random random = new Random();
         for (int i = 0; i < n; i++) {
             list1.add(random.nextInt(1000));
@@ -17,20 +14,16 @@ public class LinkedListChecker {
         return list1;
     }
 
-    public LinkedList<Integer> removeTheFirstElement() {
-        list1.removeFirst();
-        return list1;
+    private void removeElementByIndex(LinkedList<Integer> list, int index) {
+        list.remove(index);
     }
 
-    public LinkedList<Integer> removeMiddleElement() {
-        int middleElement = list1.size() / 2;
-        list1.remove(middleElement);
-        return list1;
-    }
-
-    public LinkedList<Integer> removeTheLastElement() {
-        list1.removeLast();
-        return list1;
+    public void checkRemoving(int size, int index) {
+        final LinkedList<Integer> list = createListWithSize(size);
+        long startTime1 = System.currentTimeMillis();
+        removeElementByIndex(list, index);
+        long endTime1 = System.currentTimeMillis();
+        System.out.println("The LinkedList, size: " + size + "; Time: " + (endTime1 - startTime1) + "ms");
     }
 }
 

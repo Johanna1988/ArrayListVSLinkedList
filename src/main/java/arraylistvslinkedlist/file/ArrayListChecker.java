@@ -5,10 +5,8 @@ import java.util.Random;
 
 public class ArrayListChecker {
 
-    ArrayList<Integer> list = new ArrayList<>();
-
-    public ArrayList<Integer> randomArrayList(int n) {
-
+    public ArrayList<Integer> createArrayListWithSize(int n) {
+        ArrayList<Integer> list = new ArrayList<>();
         Random random = new Random();
         for (int i = 0; i < n; i++) {
             list.add(random.nextInt(1000));
@@ -16,21 +14,16 @@ public class ArrayListChecker {
         return list;
     }
 
-    public ArrayList<Integer> removeTheFirstElement() {
-        list.remove(0);
-        return list;
+    private void removeElementByIndex(ArrayList<Integer> list, int index) {
+        list.remove(index);
     }
 
-    public ArrayList<Integer> removeMiddleElement() {
-        int middleElement = list.size() / 2;
-        list.remove(middleElement);
-        return list;
-    }
-
-    public ArrayList<Integer> removeTheLastElement() {
-        int indexOfLastElement = list.size() - 1;
-        list.remove(indexOfLastElement);
-        return list;
+    public void checkRemoving(int size, int index) {
+        final ArrayList<Integer> list = createArrayListWithSize(size);
+        long startTime1 = System.currentTimeMillis();
+        removeElementByIndex(list, index);
+        long endTime1 = System.currentTimeMillis();
+        System.out.println("The ArrayList, size: " + size + "; Time: " + (endTime1 - startTime1) + "ms");
     }
 
 }

@@ -4,28 +4,26 @@ package main.java.arraylistvslinkedlist;
 import main.java.arraylistvslinkedlist.file.ArrayListChecker;
 import main.java.arraylistvslinkedlist.file.LinkedListChecker;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 public class ArrayListVSLinkedListApp {
+
     public static void main(String[] args) {
         ArrayListChecker myArrayList = new ArrayListChecker();
         LinkedListChecker myLinkedList = new LinkedListChecker();
 
-        long startTime = System.currentTimeMillis();
-        myArrayList.randomArrayList(1_000_000);
-//        myArrayList.removeTheFirstElement();
-        myArrayList.removeMiddleElement();
-//        myArrayList.removeTheLastElement();
+        myLinkedList.checkRemoving(1_000_000, 0);
+        myLinkedList.checkRemoving(10_000, 0);
+        myLinkedList.checkRemoving(1_000, 0);
 
-        long endTime = System.currentTimeMillis();
-        System.out.println("The ArrayList methods execution time is: " + (endTime - startTime) + "ms");
+        myLinkedList.checkRemoving(10_000_000, 0);
+        myArrayList.checkRemoving(10_000_000, 0);
 
-        long startTime1 = System.currentTimeMillis();
-        myLinkedList.randomLinkedList(1_000_000);
-//        myLinkedList.removeTheFirstElement();
-        myLinkedList.removeMiddleElement();
-//        myLinkedList.removeTheLastElement();
 
-        long endTime1 = System.currentTimeMillis();
-        System.out.println("The LinkedList methods execution time: " + (endTime1 - startTime1) + "ms");
+
+
+
     }
 }
 
